@@ -34,4 +34,5 @@ SELECT * FROM department;
 SELECT * FROM role;
 SELECT * FROM employees;
 
-SELECT * FROM employees JOIN role on employees.role_id = role.id
+-- SELECT * FROM employees JOIN role on employees.role_id = role.id;
+SELECT employees.id, employees.first_name, employees.last_name, role.title, department.name AS department, role.salary, manager.first_name AS manager_first, manager.last_name AS manager_last FROM employees LEFT JOIN role on employees.role_id = role.id LEFT JOIN department on role.department_id = department.id LEFT JOIN employees manager ON manager.id = employees.manager_id;
